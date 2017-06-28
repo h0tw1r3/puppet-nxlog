@@ -4,25 +4,33 @@
 ## installed locally and is also available online at
 ## http://nxlog.org/nxlog-docs/en/nxlog-reference-manual.html
 
+<% if @root -%>
 ## Please set the ROOT to the folder your nxlog was installed into,
 ## otherwise it will not start.
 define ROOT <%= @root %>
-
-Moduledir <%= @module_dir %>
-CacheDir <%= @cache_dir %>
-Pidfile <%= @pid_file %>
-SpoolDir <%= @spool_dir %>
-LogFile <%= @log_file %>
-
-<% if @extensions %>
-  <% @extensions.each do |e| -%>
-  <Extension <%= e %>>
-      Module xm_<%= e %>
-  </Extension>
-  <% end -%>
-<% else -%>
-  <Extension syslog>
-      Module	xm_syslog
-  </Extension>
 <% end -%>
-include %ROOT%\conf.d\\*.conf
+
+<% if @module_dir -%>
+Moduledir <%= @module_dir %>
+<% end -%>
+<% if @cache_dir -%>
+CacheDir <%= @cache_dir %>
+<% end -%>
+<% if @pid_file -%>
+Pidfile <%= @pid_file %>
+<% end -%>
+<% if @spool_dir -%>
+SpoolDir <%= @spool_dir %>
+<% end -%>
+<% if @log_file -%>
+LogFile <%= @log_file %>
+<% end -%>
+
+<%- if @extensions -%>
+  <%- @extensions.each do |e| -%>
+<Extension <%= e %>>
+    Module xm_<%= e %>
+</Extension>
+  <% end -%>
+<% end %>
+include <%= @conf_dir %>/*.conf

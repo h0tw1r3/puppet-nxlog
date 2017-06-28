@@ -1,9 +1,24 @@
 # use chocolatey to install nxlog msi
-class nxlog::install{
-  package {'nxlog':
-    ensure   => present,
-    provider => 'chocolatey',
+class nxlog::install (
+  $manage_package = $::nxlog::manage_package
+)
+{
+  if $manage_package {
+    case $::osfamily {
+      'Windows': {
+        package {'nxlog':
+          ensure   => present,
+          provider => 'chocolatey',
+        }
+      }
+      'RedHat': {
+        package {'nxlog-ce':
+          ensure  => present,
+        }
+      }
+    }
   }
+
   # copy installer to client
   #file {"C:/tempinstall":
   #  ensure => directory

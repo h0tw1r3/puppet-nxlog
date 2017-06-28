@@ -2,8 +2,8 @@
 # more info found at http://nxlog-ce.sourceforge.net/nxlog-docs/en/nxlog-reference-manual.html#config_routes
 
 define nxlog::route (
-  $route_name     = undef,
-  $route_path     = undef,
+  $route_source,
+  $route_destination,
   $route_priority = undef,
   $root           = $::nxlog::root
   )
@@ -12,11 +12,13 @@ define nxlog::route (
       fail('You must include the nxlog base class before using any nxlog defined resources')
       }
 
+  $route_name = $title
+
   validate_string($route_name)
 
-  file {"${root}/conf.d/${route_name}.conf":
+  file {"${nxlog::config::conf_dir}/${route_name}.conf":
       ensure  => present,
       content => template('nxlog/route.erb')
-    }
+  }
 
 }

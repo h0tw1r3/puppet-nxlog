@@ -1,12 +1,16 @@
 <Input <%= @input_name %>>
-    Module	<%= @input_module %>
+    Module    im_<%= @input_module %>
 <% if @query -%>
-    Query <%= @query %>
+    Query     <%= @query %>
 <% end -%>
 <% if @input_file -%>
-    File <%= @input_file %>
+    File      <%= @input_file %>
 <% end -%>
 <% if @input_type -%>
     InputType <%= @input_type %>
+<% end -%>
+<% [*@input_execs].each do |input_exec| -%><%="    Exec      #{input_exec};" %>
+<% end -%>
+<% [*@input_options].each do |input_option| -%><%="    #{input_option}" %>
 <% end -%>
 </Input>

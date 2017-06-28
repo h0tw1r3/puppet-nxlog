@@ -36,13 +36,20 @@
 #                             type: array
 # $
 class nxlog (
-  $root       = $nxlog::params::root,
-  $module_dir = $nxlog::params::module_dir,
-  $cache_dir  = $nxlog::params::cache_dir,
-  $pid_file   = $nxlog::params::pid_file,
-  $spool_dir  = $nxlog::params::spool_dir,
-  $log_file   = $nxlog::params::log_file,
-  $extensions = $nxlog::params::extensions,
+  $root           = $nxlog::params::root,
+  $module_dir     = $nxlog::params::module_dir,
+  $cache_dir      = $nxlog::params::cache_dir,
+  $pid_file       = $nxlog::params::pid_file,
+  $spool_dir      = $nxlog::params::spool_dir,
+  $log_file       = $nxlog::params::log_file,
+  $log_level      = $nxlog::params::log_level,
+  $extensions     = $nxlog::params::extensions,
+  $user           = $nxlog::params::user,
+  $group          = $nxlog::params::group,
+  $manage_service = $nxlog::params::manage_service,
+  $manage_package = $nxlog::params::manage_package,
+  $service_name   = $nxlog::params::service_name,
+  $package_name   = $nxlog::params::package_name,
   )inherits nxlog::params
   {
   class {'nxlog::install':}

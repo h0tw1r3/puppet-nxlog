@@ -20,7 +20,7 @@
   ],
   "operatingsystem_support": [
     {
-      "operatingsystem": "Windows"
+      "operatingsystem": ["Windows", "Linux"]
     }
   ],
   "requirements": [

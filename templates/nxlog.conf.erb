@@ -26,11 +26,8 @@ SpoolDir <%= @spool_dir %>
 LogFile <%= @log_file %>
 <% end -%>
 
-<%- if @extensions -%>
-  <%- @extensions.each do |e| -%>
-<Extension <%= e %>>
-    Module xm_<%= e %>
-</Extension>
-  <% end -%>
-<% end %>
-include <%= @conf_dir %>/*.conf
+include <%= @conf_dir %>/extension_*.conf
+include <%= @conf_dir %>/input_*.conf
+include <%= @conf_dir %>/processor_*.conf
+include <%= @conf_dir %>/output_*.conf
+include <%= @conf_dir %>/route_*.conf

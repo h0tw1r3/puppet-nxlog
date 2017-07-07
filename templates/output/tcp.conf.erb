@@ -1,0 +1,10 @@
+<Output <%= @output_name%>>
+    Module  om_tcp
+    Host    <%= @host %>
+<% if @port -%>
+    Port    <%= @port %>
+<% end -%>
+<% if @outputtype -%>
+    OutputType <%= @outputtype %>
+<% end -%>
+</Output>

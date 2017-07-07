@@ -43,18 +43,18 @@ class nxlog (
   $spool_dir      = $nxlog::params::spool_dir,
   $log_file       = $nxlog::params::log_file,
   $log_level      = $nxlog::params::log_level,
-  $extensions     = $nxlog::params::extensions,
   $user           = $nxlog::params::user,
   $group          = $nxlog::params::group,
   $manage_service = $nxlog::params::manage_service,
   $manage_package = $nxlog::params::manage_package,
   $service_name   = $nxlog::params::service_name,
   $package_name   = $nxlog::params::package_name,
+  $extensions     = $nxlog::params::extensions,
   )inherits nxlog::params
   {
   class {'nxlog::install':}
   ->
-  class {'::nxlog::config':}
+  class {'nxlog::config':}
   ~>
   class {'nxlog::service':}
 }

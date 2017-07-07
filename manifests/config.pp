@@ -10,7 +10,6 @@ class nxlog::config (
   $spool_dir      = $::nxlog::spool_dir,
   $log_file       = $::nxlog::log_file,
   $log_level      = $::nxlog::log_level,
-  $extensions     = $::nxlog::extensions,
   $user           = $::nxlog::user,
   $group          = $::nxlog::group,
   )

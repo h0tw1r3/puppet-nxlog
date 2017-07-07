@@ -1,5 +1,7 @@
 # set the default values
 class nxlog::params {
+  # possible extension modules
+  $extensions = ['csv','json','xml','kvp','gelf','charconv','fileop','multiline','syslog','exec','perl','wtmp']
   case $::osfamily {
     'Windows': {
       $root           = "C:\\Program Files (x86)\\nxlog"
@@ -9,7 +11,6 @@ class nxlog::params {
       $spool_dir      = '%ROOT%\data'
       $log_file       = '%ROOT%\data\nxlog.log'
       $log_level      = 'INFO'
-      $extensions     = ['syslog']
       $user           = undef
       $group          = undef
       $manage_service = true
@@ -25,7 +26,6 @@ class nxlog::params {
       $spool_dir      = '/var/spool/nxlog'
       $log_file       = '/var/log/nxlog/nxlog.log'
       $log_level      = 'INFO'
-      $extensions     = ['syslog']
       $user           = 'nxlog'
       $group          = 'nxlog'
       $manage_service = true

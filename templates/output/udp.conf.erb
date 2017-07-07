@@ -1,0 +1,13 @@
+<Output <%= @output_name%>>
+    Module  om_udp
+    Host    <%= @host %>
+<% if @port -%>
+    Port    <%= @port %>
+<% end -%>
+<% if @sockbufsize -%>
+    SockBufSize <%= @sockbufsize %>
+<% end -%>
+<% if @outputtype -%>
+    OutputType <%= @outputtype %>
+<% end -%>
+</Output>

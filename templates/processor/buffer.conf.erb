@@ -1,0 +1,22 @@
+<Processor <%= @processor_name %>>
+    Module    pm_buffer
+<% if @maxsize -%>
+    MaxSize <%= @maxsize %>
+<% end -%>
+<% if @type -%>
+    Type <%= @type %>
+<% end -%>
+<% if @warnlimit -%>
+    WarnLimit <%= @warnlimit %>
+<% end -%>
+<% if @directory -%>
+    Directory <%= @directory %>
+<% end -%>
+<% if @schedules -%>
+<% @schedules.sort.each do |schedule| %>
+<% schedule.sort.map do |key,value| %>
+    <%= key %>    <%= value %>
+<% end -%>
+<% end -%>
+<% end -%>
+</Processor>

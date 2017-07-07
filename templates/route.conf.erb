@@ -1,0 +1,6 @@
+<Route <%= @route_name %>>
+    Path  <%= path.sort.map {|key,value| "#{value}"}.join(' => ') %>
+<% if @priority -%>
+    Priority <%= @priority %>
+<% end -%>
+</Route>

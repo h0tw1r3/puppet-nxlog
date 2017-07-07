@@ -1,0 +1,14 @@
+<Input <%= @input_name %>>
+    Module im_tcp
+<% if @host -%>
+    Host <%= @host %>
+<% end -%>
+<% if @port -%>
+    Port <%= @port %>
+<% end -%>
+<% if @inputtype -%>
+    InputType <%= @inputtype %>
+<% end -%>
+<% [*@exec].each do |_exec| -%><%="    Exec      #{_exec};" %>
+<% end -%>
+</Input>
